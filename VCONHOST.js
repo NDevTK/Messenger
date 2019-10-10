@@ -1,6 +1,7 @@
 function Header(version = "1.0.0.0", year = 2019) {
 output.innerText =
 `Noob Messenger [Version ${version}]
+User must be online
 (c) ${year} NDev.`
 }
 
