@@ -10,7 +10,7 @@ function Header(version = "1.0.0.0", year = 2019) {
 
     function createShocket(id = false) {
         let address = base;
-        if(id) address.concat("?room_id="+id);
+        if(id) address = base.concat("?room_id="+id);
         socket = new WebSocket(address);
     }
     
