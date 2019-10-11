@@ -100,7 +100,7 @@ function Header(version = "1.0.0.0", year = 2019) {
     }
     
     async function Help(command) {
-        let reply;
+        let reply = "";
         if(!command) {
             help.forEach(cmd => reply += cmd+"\n");
         }
