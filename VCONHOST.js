@@ -10,7 +10,7 @@ function Header(version = "1.0.0.0", year = 2019) {
 
     function createShocket(id = false) {
         let address = base;
-        if(id) address = base.concat("?room_id="+id);
+        if(id) address += ("?room_id="+id);
         socket = new WebSocket(address);
     }
     
@@ -100,13 +100,14 @@ function Header(version = "1.0.0.0", year = 2019) {
     }
     
     async function Help(command) {
+        let reply;
         if(!command) {
-            // Add custom command to list
+            help.forEach(cmd => reply += cmd+"\n");
         }
         if(help.has(command)) {
-            reply = help.get(command);
+            reply += help.get(command);
         } else {
-            reply = await (command);
+            reply += await HELPLookup(command);
         }
         EchoLine(reply);
         return;
