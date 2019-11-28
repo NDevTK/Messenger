@@ -44,6 +44,7 @@ function Header(version = "1.0.0.0", year = 2019) {
     async function room(id) {
         if(isNaN(id) ||  id > 10000 || id === 0) {
             EchoLine("room id is not valid it must be a number 1-10000");
+            return
         }
         socket.close();
         createShocket(id);
