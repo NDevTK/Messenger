@@ -3,7 +3,7 @@ const base = "wss://connect.websocket.in/v2/1?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJS
 function Header(version = "1.0.0.0", year = 2019) {
     output.innerText =
     `Noob Messenger [Version ${version}]
-    User must be online. /room [roomid]
+    User must be online. /room [1-10000]
     (c) ${year} NDev.`
     }
 
