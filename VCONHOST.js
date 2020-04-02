@@ -3,7 +3,6 @@ function Header(version = "1.0.0.0", year = 2019) {
     `Noob Messenger [Version ${version}]
     User must be online. /room [id]
     (c) ${year} NDev.`
-    }
 }
 
 createShocket();
