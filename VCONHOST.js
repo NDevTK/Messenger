@@ -1,6 +1,3 @@
-const token = "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNjMmExYzczN2E3OTUxZTU1MWVhOTNkNDE4ZGJiOGFlNzgzODE2NTI1M2ViNDc0ZTM3ODk0OTA5Y2UwMDM1Y2RkMzU3ZjYyN2ZhOTY4YTJhIn0.eyJhdWQiOiI4IiwianRpIjoiM2MyYTFjNzM3YTc5NTFlNTUxZWE5M2Q0MThkYmI4YWU3ODM4MTY1MjUzZWI0NzRlMzc4OTQ5MDljZTAwMzVjZGQzNTdmNjI3ZmE5NjhhMmEiLCJpYXQiOjE1Nzc5MTIxNTgsIm5iZiI6MTU3NzkxMjE1OCwiZXhwIjoxNjA5NTM0NTU4LCJzdWIiOiIyNjIiLCJzY29wZXMiOltdfQ.FmwgCzpT1jaeQlM4th5tm7cFxUJY_VZJy3kf5JEdk7xFM6e_8J6rkXX-p9udTIXYwQB9PyDhpkyvXh2FqGq8Ny8VZbNp5GUO5_-tcfyuSBQnmYvHAnYOe6rDvHt6X7hYr13Uigh2jix7Dhco6laBuHuahEl2CRVLuk72B0Fbl-HXcWIXmYOqmXbcza2qQMQycW-NhwxvaT6jG0n7ywYw8pWaNypBpnUfYrN0gSktdUYAl6Hy96n-2Zitbofam4gH4C-nRLfJ6T_gSuTb8ARxc1oaKvKapTUbSR_3gU48wojXO86EzbFzl5oKG8-t_tiQY_q_NfLSurr0BpA1MJk1-i7eB0-XwivrdyB4eWyU0nGxihb2KBJgUJkYYYWLHGd8PSWe08ozQktTruEV5ovMz5mjlv08WeC1NiHxIvokeumBiF3T5uptrR2ZJwFltrFMJBhLMkQigQsN0sfduWOzx5xvW9V4RmXkHqp0PcK57VGWcKlKdsfMHg20Y4HTZNgblnh1_HQTE18dS3ilRy8U0LTk4FcKfgIS24CYuWzcD1npQo4LXa7613vRWrJyoLyA5Z0vC7H0ucmA-NSzP_5r0t4RpiiXpU0Zmg_POeU8FT1jntoOwg-yFy_RuaVf5OSPbw9Dxx3UhmVLfRwmuUL4AJVVeaJqQJXJ-J_jfUTyR2Y";
-const base = "wss://connect.websocket.in/v2/";
-
 function Header(version = "1.0.0.0", year = 2019) {
     output.innerText =
     `Noob Messenger [Version ${version}]
@@ -11,9 +8,10 @@ function Header(version = "1.0.0.0", year = 2019) {
     createShocket();
 
     function createShocket(id = 1) {
-        let address = base;
-        address += id+token;
-        socket = new WebSocket(address);
+        socket = new WebSocket("wss://wsnoob.herokuapp.com");
+        socket.onopen = function (event) {
+            socket.send(id);
+        };
     }
     
     
