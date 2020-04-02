@@ -1,7 +1,7 @@
 function Header(version = "1.0.0.0", year = 2019) {
     output.innerText =
     `Noob Messenger [Version ${version}]
-    User must be online. /room [1-10000]
+    User must be online. /room [id]
     (c) ${year} NDev.`
     }
 
@@ -29,7 +29,7 @@ function Header(version = "1.0.0.0", year = 2019) {
     var hcount = 0;
     var hdata = [];
     
-    help.set("room", "room [1-10000]");
+    help.set("room", "room [id]");
 
     function IsTouch() {
         var match = window.matchMedia || window.msMatchMedia;
@@ -41,10 +41,6 @@ function Header(version = "1.0.0.0", year = 2019) {
     }
     
     async function room(id) {
-        if(isNaN(id) ||  id > 10000 || id === 0) {
-            EchoLine("room id is not valid it must be a number 1-10000");
-            return
-        }
         socket.close();
         createShocket(id);
         EchoLine("Switched to room id: ".concat(id));
