@@ -4,24 +4,25 @@ function Header(version = "1.0.0.0", year = 2019) {
     User must be online. /room [id]
     (c) ${year} NDev.`
     }
+}
 
-    createShocket();
+createShocket();
 
-    function createShocket(id = 1) {
-        socket = new WebSocket("wss://wsnoob.herokuapp.com");
-        socket.onopen = function (event) {
-            socket.send(id);
-        };
-    }
+function createShocket(id = 1) {
+    socket = new WebSocket("wss://wsnoob.herokuapp.com");
+    socket.onopen = function (event) {
+        socket.send(id);
+    };
+}
     
     
-    async function HELPLookup(command) {
-        end = (command) ? "RAW/" + command.toUpperCase() : "Summary";
-        resp = await fetch("https://cmddoc.ndev.tk/" + end);
-        if (!resp.ok) return 'This command is not supported by the help utility.  Try "' + command + ' /?".'
-        text = await resp.text();   
-        return text;
-    }
+async function HELPLookup(command) {
+    end = (command) ? "RAW/" + command.toUpperCase() : "Summary";
+    resp = await fetch("https://cmddoc.ndev.tk/" + end);
+    if (!resp.ok) return 'This command is not supported by the help utility.  Try "' + command + ' /?".'
+    text = await resp.text();   
+    return text;
+}
     
     var help = new Map();
     var commands = new Map();
