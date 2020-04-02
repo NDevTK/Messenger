@@ -9,8 +9,14 @@ createShocket();
 
 function createShocket(id = 1) {
     socket = new WebSocket("wss://wsnoob.herokuapp.com");
+    
     socket.onopen = function (event) {
         socket.send(id);
+    };
+    
+    socket.onmessage = function (event) {
+        NewLine();
+        EchoLine(event.data);
     };
 }
     
@@ -124,14 +130,10 @@ function ColorParser(codes) {
     output = document.getElementById("output");
     Header();
     input = document.getElementById("input");
+
     if (IsTouch) {
         input.isContentEditable = true;
     }
-    
-    socket.addEventListener('message', function(event) {
-        NewLine();
-        EchoLine(event.data);
-    });
     
     function OSK() {
         if (IsTouch) {
@@ -154,6 +156,7 @@ function ColorParser(codes) {
     function NewLine() {
         echo("\n");
     }
+
     document.addEventListener('keydown', function(e) {
         if (e.key.length === 1) {
             input.innerText += e.key;
