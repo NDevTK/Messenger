@@ -18,6 +18,10 @@ function createShocket(id = 1) {
         NewLine();
         EchoLine(event.data);
     };
+    
+    socket.onclose = function (event) {
+        location.reload();
+    };
 }
     
     
