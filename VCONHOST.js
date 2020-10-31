@@ -189,12 +189,12 @@ function ColorParser(codes) {
         }
     });
 
+    idle = false;
     setInterval(function() {
         if(idle) location.reload();
         idle = true
     }, 10000);
 
-    idle = false;
     function SendMessage(displayable) {
         idle = false;
         socket.send(displayable);
