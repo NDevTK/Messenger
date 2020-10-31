@@ -1,4 +1,4 @@
-function Header(version = "1.0.0.0", year = 2019) {
+function Header(version = "1.0.0.0", year = 2020) {
     output.innerText =
     `Noob Messenger [Version ${version}]
     User must be online. /room [id] inactivity will casue the page to reload.
