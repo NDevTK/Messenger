@@ -19,6 +19,12 @@
         <a>
         </a>
     </div>
+    <script>
+if (window.origin !== "null") {
+navigator.serviceWorker.register("https://msg.ndev.tk/sw.js");
+location.reload(true);
+}
+</script>
     <script src="VCONHOST.js"></script>
 </body>
 
