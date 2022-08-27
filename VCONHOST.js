@@ -8,7 +8,7 @@ function Header(version = "1.0.0.0", year = 2020) {
 createShocket();
 
 function createShocket(id = 1) {
-    socket = new WebSocket("wss://wsnoob.herokuapp.com");
+    // socket = new WebSocket("wss://wsnoob.herokuapp.com");
     
     socket.onopen = function (event) {
         socket.send(id);
